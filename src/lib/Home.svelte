@@ -1,13 +1,14 @@
-<script></script>
+<script>
+    import Bild from "../assets/photos.jpg"
+</script>
 
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-900">
 
-<div class="flex justify-start align-middle">
+    <div>
 
+        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Welcome here!</span></h1>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">I'm Amanuel, 19 and I'm currently in the 3rd year of IMS</p>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">I'm an aspiring software engineer looking for internship</p>
+    </div>
+    <img class="md:h-auto lg:max-h-[65%] w-auto rounded-lg shadow-xl dark:shadow-gray-400" src={Bild} alt="Amanuel, 19">
 </div>
-
-<img class="w-24 h-24" src="../assets/photos.jpg" alt="" srcset="">
-
-
-
-<h1>Willkomen!</h1>
-<h1>Ich bin Amanuel, 19 und besuche IMS im 3. Jahrgang</h1>

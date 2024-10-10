@@ -1,6 +1,6 @@
 <script>
   import About from "$lib/About.svelte";
-    import Home from "$lib/Home.svelte";
+  import Home from "$lib/Home.svelte";
   import Project from "$lib/Projects.svelte";
 </script>
 
