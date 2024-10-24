@@ -9,14 +9,9 @@
 </svelte:head>
 
 <slot />
-
-<section>
-  <Home/>
-</section>
-
-<section>
-  <About />
-</section>
+<Home/>
+<slot />
+<About />
 <section>
   <Project />
 </section>

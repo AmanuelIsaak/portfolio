@@ -18,7 +18,7 @@ let context = {
 };
 </script>
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol class="relative border-s border-gray-200 dark:border-gray-700 md:w-[60%]">
   <li class="mb-10 ms-4">
     <div
       class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
@@ -30,8 +30,8 @@ let context = {
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
       Curiosity
     </h3>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 block md:hidden">{@html context.curiosity.short}</p>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 hidden md:block">{@html context.curiosity.long}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 block lg:hidden">{@html context.curiosity.short}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 hidden lg:block">{@html context.curiosity.long}</p>
   </li>
 
   <li class="mb-10 ms-4">
@@ -45,8 +45,8 @@ let context = {
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
       First steps
     </h3>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 block md:hidden">{@html context.firstStep.short}</p>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 hidden md:block">{@html context.firstStep.long}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 block lg:hidden">{@html context.firstStep.short}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 hidden lg:block">{@html context.firstStep.long}</p>
   </li>
   <li class="ms-4">
     <div
@@ -59,7 +59,7 @@ let context = {
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
       Where do I stand now?
     </h3>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 block md:hidden">{@html context.whereDoIStandNow.short}</p>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 hidden md:block">{@html context.whereDoIStandNow.long}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 block lg:hidden">{@html context.whereDoIStandNow.short}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 hidden lg:block">{@html context.whereDoIStandNow.long}</p>
   </li>
 </ol>
