@@ -19,9 +19,6 @@ body {
 }
 
 img,
-picture,
-video,
-canvas,
 svg {
   display: block;
   max-width: 100%;
@@ -37,33 +34,36 @@ select {
 p,
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   overflow-wrap: break-word;
-}
-
-#root,
-#__next {
-  isolation: isolate;
 }
 
 section {
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: 8rem 2rem;
   width: 100%;
   height: 100dvh;
+
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   section {
     display: grid;
     place-items: center;
-    padding: 8rem 2rem;
+    padding: 1rem;
     width: 100%;
-    height: 100dvh;
+    height: auto;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(-105%);
+    }
   }
 }
 
@@ -74,6 +74,17 @@ html {
   background-color: #111827;
 }
 
-h1 {
-  margin-top: 4rem;
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-80%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 8s linear infinite;
 }

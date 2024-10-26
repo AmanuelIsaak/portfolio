@@ -12,6 +12,5 @@
 <Home/>
 <slot />
 <About />
-<section>
-  <Project />
-</section>
+<slot />
+<Project />
