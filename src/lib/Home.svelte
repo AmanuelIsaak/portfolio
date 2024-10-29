@@ -32,8 +32,7 @@ import Modal from "../components/Modal.svelte"
         </div>
         <h2>2<img src={StarSVG} alt="Languages">  </h2>
         <div class="flex space-x-8 animate-scroll">
-          <img src={JavaScriptSVG} alt="JavaScript" class="w-16 h-16">
-          <img src={ArchSVG} alt="Arch" class="w-16 h-16">
+          <img src={MysqlSVG} alt="JavaScript" class="w-16 h-16">
         </div>
       </div>
   </div>
