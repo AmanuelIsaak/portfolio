@@ -54,6 +54,7 @@ section {
     padding: 1rem;
     width: 100%;
     height: auto;
+    padding-top: 8rem;
   }
 
   @keyframes scroll {

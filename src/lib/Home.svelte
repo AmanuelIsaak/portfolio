@@ -13,7 +13,7 @@ import Modal from "../components/Modal.svelte"
 
 <section class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-900">
   <div class="lg:ml-24 flex flex-col">
-    <h1 class="mb-8 text-center text-4xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Welcome here!</span></h1>
+    <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-center"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Welcome here!</span></h1>
     <p class=" text-center text-xl text-gray-900 dark:text-white">I'm Amanuel, 19 and I'm currently in the 3rd year of <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://wg.edubs.ch/schulprofil/ims">IMS</a>. I'm an aspiring software engineer looking for internship</p>
   <div class="relative overflow-hidden bg-gray-900 py-8">
       <div class="flex flex-col">
@@ -36,9 +36,8 @@ import Modal from "../components/Modal.svelte"
         </div>
       </div>
   </div>
-  </div>
-  <img class="md:h-auto max-sm:w-full md:max-w-[75%] max-w-[75%] rounded-lg shadow-xl dark:shadow-gray-400" src={Bild} alt="Amanuel, 19">
 
   <Modal />
-
+  </div>
+  <img class="md:w-[70%] lg:w-[60%] h-auto rounded-lg shadow-xl dark:shadow-gray-400" src={Bild} alt="Amanuel, 19">
 </section>

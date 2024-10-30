@@ -11,7 +11,7 @@ function closeNav() {
 </script>
 
 <nav
-  class="scroll-smooth sticky overflow-hidden top-0 w-full z-20 bg-white border-gray-200 dark:bg-gray-900 shadow-inner"
+  class="scroll-smooth fixed overflow-hidden top-0 w-full z-20 bg-white border-gray-200 dark:bg-gray-900 shadow-inner"
 >
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
