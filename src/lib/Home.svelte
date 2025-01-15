@@ -27,12 +27,6 @@ import Modal from "../components/Modal.svelte"
             <img src={GitSVG} alt="Git" class="w-16 h-16">
             <img src={SvelteSVG} alt="Svelte" class="w-16 h-16">
             <img src={VimSVG} alt="Svelte" class="w-16 h-16">
-          <div class="overflow-hidden">
-            <div class="flex space-x-8 animate-scroll">
-              <img src={GitSVG} alt="Git" class="w-16 h-16" />
-              <img src={SvelteSVG} alt="Svelte" class="w-16 h-16" />
-              <img src={VimSVG} alt="NeoVim" class="w-16 h-16" />
-            </div>
           </div>
         </div>
 
@@ -42,12 +36,6 @@ import Modal from "../components/Modal.svelte"
             <img src={JavaScriptSVG} alt="JavaScript" class="w-16 h-16">
             <img src={ArchSVG} alt="Arch" class="w-16 h-16">
             <img src={GoSVG} alt="Go" class="w-16 h-16">
-          <div class="overflow-hidden">
-            <div class="flex space-x-8 animate-scroll">
-              <img src={JavaScriptSVG} alt="JavaScript" class="w-16 h-16" />
-              <img src={ArchSVG} alt="Arch" class="w-16 h-16" />
-              <img src={GoSVG} alt="Go" class="w-16 h-16" />
-            </div>
           </div>
         </div>
 
@@ -57,11 +45,6 @@ import Modal from "../components/Modal.svelte"
             <img src={MysqlSVG} alt="MySQL" class="w-16 h-16">
             <img src={JavaSVG} alt="Java" class="w-16 h-16">
             <img src={PhpSVG} alt="PHP" class="w-16 h-16">
-          <div class="overflow-hidden">
-            <div class="flex space-x-8 animate-scroll">
-              <img src={MysqlSVG} alt="MySQL" class="w-16 h-16" />
-              <img src={JavaSVG} alt="Java" class="w-16 h-16" />
-              <img src={PhpSVG} alt="PHP" class="w-16 h-16" />
           </div>
         </div>
       </div>
