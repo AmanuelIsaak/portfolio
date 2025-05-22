@@ -27,7 +27,7 @@
             I'm Amanuel, 19 and I'm currently in the 3rd year of <a
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 href="https://wg.edubs.ch/schulprofil/ims">IMS</a
-            >. I'm an aspiring software engineer looking for internship
+            >
         </p>
 
         <div class="relative overflow-hidden bg-gray-900 py-8">
