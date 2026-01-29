@@ -1,16 +1,16 @@
 <script>
-    import About from "$lib/About.svelte";
     import Home from "$lib/Home.svelte";
-    import Project from "$lib/Projects.svelte";
+    import About from "$lib/About.svelte";
+    import Projects from "$lib/Projects.svelte";
+    import Contact from "$lib/Contact.svelte";
 </script>
 
 <svelte:head>
-    <meta property="description" content="Home" />
+    <title>Amanuel - Software Developer</title>
+    <meta name="description" content="Amanuel's portfolio - Software Developer" />
 </svelte:head>
 
-<slot />
 <Home />
-<slot />
 <About />
-<slot />
-<Project />
+<Projects />
+<Contact />

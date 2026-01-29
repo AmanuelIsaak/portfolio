@@ -1,86 +1,63 @@
-<script>
-    let context = {
-        curiosity: {
-            short: "During the pandemic in 2021, while everyone was at home and computers were being purchased widely, I became curious about how computers work. My background in gaming also sparked my fascination with coding and software development.",
-            long: "Before 2021 I was not really interested in computers or software. But at that time during the pandemic everyone was at home bored and computers were getting bought everywhere. I also was taking notice of the trend and got really curios on how computer really work. And since I used to game alot I also got fascinated by how the software or games were coded.",
+<script lang="ts">
+    import ScrollReveal from "./ScrollReveal.svelte";
+
+    const milestones = [
+        {
+            year: "2021",
+            title: "Curiosity",
+            icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+            description:
+                "During the pandemic, while everyone was at home and computers were being purchased widely, I became curious about how computers work. My background in gaming sparked a fascination with coding and software development.",
         },
-        firstStep: {
-            short: "In 2021, I joined IMS to learn software engineering and built small projects like calculators and password generators, which felt like big achievements. In 2022, I enrolled in IMS, learning databases, HTML, and CSS. Though initially hesitant about JavaScript, I overcame that fear. Now, I aim to become a passionate software engineer with a deeper understanding to deliver valuable work.",
-            long: "In 2021 I decided to enter <a class=\"font-medium text-blue-600 dark:text-blue-500 hover:underline\" href=\"https://wg.edubs.ch/schulprofil/ims\">IMS</a> in order to learn about software engineering. Meanwhile I did some research and wrote some 'toy-application' like calculators and password generators. Even though I was building something simple, it really felt like I've built something big and hard.Fast forward to 2022 and I was enrolled in IMS and there were just too many topics that we've learned about. Databases and building static websites with HTML and CSS. These were the main topics at that time. But suddenly I was scared to make some progress like start using Javascript. But it wasn't long before I overcame it.But nevertheless, I aspire to become a software engineer with passion and a deeper level of understanding in order to provide valuable work!",
+        {
+            year: "2021 - 2022",
+            title: "First Steps",
+            icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+            description:
+                "I decided to enter IMS to learn software engineering. I started building small projects like calculators and password generators. Even though they were simple, each one felt like a real achievement. Once enrolled, I dove into databases, HTML, CSS, and eventually overcame my hesitation around JavaScript.",
         },
-        whereDoIStandNow: {
-            short: "I have a limited programming experience in Go and JavaScript. I've built some simple websites and apps but still feel like a beginner. I lack a deep understanding of software fundamentals, data structures, algorithms, and haven't developed a complex application that covers both frontend and backend, along with topics like security and networking.",
-            long: "At this point I have some experience at programming in general. I mostly used Goland and Javascript, Svelte specifically, and in school we mostly used PHP and Java. I've build some silly websites but I also build some decent apps as well. But I still feel like a beginner since I have no deep understanding of how software actually works under the hood. I still don't know much about Data structures and Algorithms, I still haven't build a complex application to really cover frontend and backend and just other skills and topics like security, network, design pattern etc.",
+        {
+            year: "2022 - 2025",
+            title: "Learning the Craft",
+            icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+            description:
+                "I gained experience with Go, Python, and JavaScript, building projects and deepening my understanding of software engineering. These years at IMS gave me a solid theoretical CS foundation.",
         },
-    };
+        {
+            year: "2025 - Present",
+            title: "Shifting Focus",
+            icon: "M13 10V3L4 14h7v7l9-11h-7z",
+            description:
+                "Started my software engineering internship and beginning Business Information Technology at FHNW Basel. My focus has shifted toward AI and business IT — combining my CS knowledge with AI and business fundamentals, working towards a career in IT consulting.",
+        },
+    ];
 </script>
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700 md:w-[60%]">
-    <li class="mb-10 ms-4">
-        <div
-            class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
-        ></div>
-        <time
-            class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-            >>=2021</time
-        >
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-            Curiosity
-        </h3>
-        <p
-            class="text-base font-normal text-gray-500 dark:text-gray-400 block lg:hidden"
-        >
-            {@html context.curiosity.short}
-        </p>
-        <p
-            class="text-base font-normal text-gray-500 dark:text-gray-400 hidden lg:block"
-        >
-            {@html context.curiosity.long}
-        </p>
-    </li>
+<div class="relative max-w-2xl">
+    <!-- Gradient timeline line -->
+    <div class="absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-rose-500 via-orange-500 to-amber-500 opacity-30"></div>
 
-    <li class="mb-10 ms-4">
-        <div
-            class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
-        ></div>
-        <time
-            class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-            >2021-2022</time
-        >
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-            First steps
-        </h3>
-        <p
-            class="text-base font-normal text-gray-500 dark:text-gray-400 block lg:hidden"
-        >
-            {@html context.firstStep.short}
-        </p>
-        <p
-            class="text-base font-normal text-gray-500 dark:text-gray-400 hidden lg:block"
-        >
-            {@html context.firstStep.long}
-        </p>
-    </li>
-    <li class="ms-4">
-        <div
-            class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
-        ></div>
-        <time
-            class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-            >2022-now</time
-        >
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-            Where do I stand now?
-        </h3>
-        <p
-            class="text-base font-normal text-gray-500 dark:text-gray-400 block lg:hidden"
-        >
-            {@html context.whereDoIStandNow.short}
-        </p>
-        <p
-            class="text-base font-normal text-gray-500 dark:text-gray-400 hidden lg:block"
-        >
-            {@html context.whereDoIStandNow.long}
-        </p>
-    </li>
-</ol>
+    <ol class="space-y-12">
+        {#each milestones as { year, title, icon, description }, i}
+            <ScrollReveal delay={i * 120}>
+                <li class="relative pl-12 group">
+                    <!-- Animated dot -->
+                    <div class="absolute left-0 top-0 w-[31px] h-[31px] rounded-full bg-rose-100 dark:bg-rose-900/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-rose-600 dark:text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                        </svg>
+                    </div>
+                    <span class="text-xs font-semibold text-rose-600 dark:text-rose-400 uppercase tracking-wider">
+                        {year}
+                    </span>
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white mt-1 mb-2">
+                        {title}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        {description}
+                    </p>
+                </li>
+            </ScrollReveal>
+        {/each}
+    </ol>
+</div>
