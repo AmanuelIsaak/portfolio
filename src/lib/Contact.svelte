@@ -33,7 +33,7 @@
                         GitHub
                     </a>
                     <a
-                        href="https://linkedin.com/in/amanuel-isaak"
+                        href="https://www.linkedin.com/in/amanuel-isaak-b00808308/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] dark:hover:bg-[#0077b5] dark:hover:border-[#0077b5] dark:hover:text-white transition-all duration-300 text-sm font-medium"

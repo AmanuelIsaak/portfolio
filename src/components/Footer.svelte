@@ -1,7 +1,83 @@
+<script lang="ts">
+    const socials = [
+        {
+            href: "https://github.com/AmanuelIsaak",
+            label: "GitHub",
+            path: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z",
+        },
+        {
+            href: "https://www.linkedin.com/in/amanuel-isaak-b00808308/",
+            label: "LinkedIn",
+            path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+        },
+        {
+            href: "mailto:amanuel.isaak@outlook.com",
+            label: "Email",
+            path: "M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z",
+        },
+        {
+            href: "https://www.strava.com/athletes/143071755",
+            label: "Strava",
+            path: "M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169",
+        },
+    ];
+</script>
+
 <footer class="border-t border-slate-200 dark:border-slate-800">
-    <div class="max-w-5xl mx-auto px-6 py-8">
-        <p class="text-center text-sm text-slate-500 dark:text-slate-400">
-            &copy; 2026 Amanuel. All rights reserved.
-        </p>
+    <div
+        class="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6"
+    >
+        <div class="text-center sm:text-left">
+            <a href="#hero" class="text-base font-bold gradient-text"
+                >Amanuel</a
+            >
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                &copy; {new Date().getFullYear()} Amanuel Isaak · Built with
+                SvelteKit
+            </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+            {#each socials as { href, label, path }}
+                <a
+                    {href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined}
+                    aria-label={label}
+                    class="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d={path} />
+                    </svg>
+                </a>
+            {/each}
+
+            <a
+                href="#hero"
+                aria-label="Back to top"
+                class="ml-2 p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:border-rose-300 dark:hover:border-rose-700 transition-colors"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 15l7-7 7 7"
+                    />
+                </svg>
+            </a>
+        </div>
     </div>
 </footer>

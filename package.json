@@ -13,6 +13,7 @@
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/three": "^0.184.1",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.47",
 		"svelte": "^4.2.7",
@@ -24,5 +25,8 @@
 	"type": "module",
 	"engines": {
 		"node": "20.x"
+	},
+	"dependencies": {
+		"three": "^0.184.0"
 	}
 }
