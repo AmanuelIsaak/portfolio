@@ -2,67 +2,70 @@
     import ProjectCard from "../components/ProjectCard.svelte";
     import ScrollReveal from "../components/ScrollReveal.svelte";
 
-    const featured = {
-        name: "AI Study Assistant",
+    type Project = {
+        name: string;
+        description: string;
+        tech: string[];
+        status: string;
+        demo?: string;
+        repo?: string;
+        repoLabel?: string;
+        highlights?: string[];
+    };
+
+    const featured: Project = {
+        name: "PDF Reader",
         description:
-            "A retrieval-augmented study tool that turns lecture PDFs into an interactive tutor — upload your notes, ask questions, and get answers with citations back to the source. Built around the Claude API.",
-        tech: ["Python", "FastAPI", "Claude API", "Svelte"],
-        link: "https://github.com/AmanuelIsaak",
-        status: "concept",
+            "A lightweight desktop PDF reader and editor. It renders documents with PDF.js and writes edited copies with pdf-lib, while native Rust commands handle the file dialogs, filesystem access, and recent-file history. You can fill interactive form fields, add text, highlights, and freehand drawings, then export without ever touching the source file.",
+        tech: ["Tauri", "Rust", "Svelte", "TypeScript", "Tailwind"],
+        status: "private",
         highlights: [
-            "RAG pipeline",
-            "Streaming answers",
-            "Source citations",
+            "Native Rust file I/O",
+            "Form filling & annotations",
+            "Full-document text search",
         ],
     };
 
-    const projects = [
+    const projects: Project[] = [
+        {
+            name: "My Circle",
+            description:
+                "A personal relationship tracker that maps the people in your life across concentric circles of closeness. Three ways to view the same data — circle, timeline, and grid — with everything stored locally in the browser.",
+            tech: ["Svelte", "TypeScript", "Tailwind"],
+            demo: "https://family-tree-tau-nine.vercel.app",
+            repo: "https://github.com/AmanuelIsaak/my-circle",
+            status: "live",
+        },
         {
             name: "URL Shortener",
             description:
-                "A fast, minimal URL shortener written in Go — clean redirect service with a tiny footprint and zero external dependencies.",
+                "A minimal URL shortener written in Go — takes a long link, hands back a short one, and redirects. Server-rendered templates, no external dependencies, small enough to read end to end.",
             tech: ["Go"],
-            link: "https://github.com/AmanuelIsaak/URL-shortner",
+            repo: "https://github.com/AmanuelIsaak/URL-shortner",
             status: "source",
         },
         {
             name: "This Portfolio",
             description:
-                "The site you're looking at right now — SvelteKit and Tailwind, with an interactive Three.js particle hero.",
-            tech: ["Svelte", "Tailwind", "Three.js"],
-            link: "https://github.com/AmanuelIsaak/portfolio",
-            status: "source",
+                "The site you're reading right now — SvelteKit and Tailwind, with an interactive Three.js particle field behind the hero and a dark mode that remembers your choice.",
+            tech: ["SvelteKit", "Tailwind", "Three.js"],
+            demo: "https://amanuel-isaak.vercel.app",
+            repo: "https://github.com/AmanuelIsaak/portfolio",
+            status: "live",
         },
         {
-            name: "Expense Tracker",
+            name: "More in progress",
             description:
-                "A small full-stack app to log and visualise spending, backed by a MySQL database — an example project from my IMS coursework.",
-            tech: ["PHP", "MySQL"],
-            link: "https://github.com/AmanuelIsaak",
-            status: "concept",
-        },
-        {
-            name: "CLI Toolkit",
-            description:
-                "A grab-bag of command-line utilities I use day to day — a password generator, a file organiser, and a few handy scripts.",
-            tech: ["Go", "Python"],
-            link: "https://github.com/AmanuelIsaak",
-            status: "concept",
-        },
-        {
-            name: "More on the way",
-            description:
-                "I'm always tinkering. New projects around AI and business IT are in progress — check back soon, or follow along on GitHub.",
+                "I'm usually building something. Recent work has pulled me toward desktop apps, Rust, and AI-assisted tooling — the newest things land on GitHub first.",
             tech: [],
+            repo: "https://github.com/AmanuelIsaak",
+            repoLabel: "GitHub",
             status: "soon",
         },
     ];
 </script>
 
-<section
-    id="projects"
-    class="relative py-24 md:py-32 px-6 overflow-hidden"
->
+<section id="projects" class="relative py-24 md:py-32 px-6 overflow-hidden">
     <!-- Decorative blobs -->
     <div
         class="absolute -bottom-20 -left-40 w-80 h-80 bg-orange-200/20 dark:bg-orange-500/5 rounded-full blur-3xl animate-float-delayed pointer-events-none"
@@ -86,9 +89,10 @@
             <p
                 class="text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-12"
             >
-                A mix of shipped projects and concepts I'm exploring. Most started
-                simple, but each one taught me something about structuring code,
-                researching solutions, and shipping software end to end.
+                Each of these started as something I actually wanted to exist.
+                Most began simple, and every one taught me something about
+                structuring code, reading documentation, and shipping software
+                end to end.
             </p>
         </ScrollReveal>
 
@@ -98,9 +102,8 @@
                     name={featured.name}
                     description={featured.description}
                     tech={featured.tech}
-                    link={featured.link}
                     status={featured.status}
-                    highlights={featured.highlights}
+                    highlights={featured.highlights ?? []}
                     featured
                 />
             </ScrollReveal>
@@ -111,7 +114,9 @@
                         name={project.name}
                         description={project.description}
                         tech={project.tech}
-                        link={project.link}
+                        demo={project.demo ?? ""}
+                        repo={project.repo ?? ""}
+                        repoLabel={project.repoLabel ?? "Source"}
                         status={project.status}
                     />
                 </ScrollReveal>

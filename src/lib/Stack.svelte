@@ -5,9 +5,11 @@
     import python from "../assets/python.svg";
     import javascript from "../assets/javascript.svg";
     import typescript from "../assets/typescript.svg";
+    import rust from "../assets/rust.svg";
     import java from "../assets/java.svg";
     import php from "../assets/php.svg";
     import svelte from "../assets/svelte.svg";
+    import tauri from "../assets/tauri.svg";
     import tailwind from "../assets/tailwind.svg";
     import mysql from "../assets/mysql.svg";
     import git from "../assets/git.svg";
@@ -20,7 +22,9 @@
         { name: "Python", src: python },
         { name: "JavaScript", src: javascript },
         { name: "TypeScript", src: typescript },
+        { name: "Rust", src: rust },
         { name: "Svelte", src: svelte },
+        { name: "Tauri", src: tauri },
         { name: "Tailwind", src: tailwind },
         { name: "Java", src: java },
         { name: "PHP", src: php },
@@ -34,12 +38,20 @@
         {
             title: "Languages",
             icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
-            items: ["Go", "Python", "JavaScript", "TypeScript", "Java", "PHP"],
+            items: [
+                "Go",
+                "Python",
+                "TypeScript",
+                "JavaScript",
+                "Rust",
+                "Java",
+                "PHP",
+            ],
         },
         {
-            title: "Web",
+            title: "Web & Desktop",
             icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
-            items: ["Svelte", "Tailwind CSS", "HTML & CSS", "SvelteKit"],
+            items: ["Svelte", "SvelteKit", "Tauri", "Tailwind CSS", "HTML & CSS"],
         },
         {
             title: "Data & Backend",
@@ -76,7 +88,8 @@
                 class="text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-12"
             >
                 A snapshot of the languages, frameworks, and tools I reach for —
-                from low-level Go services to AI-assisted web apps.
+                from Go services and Rust-backed desktop apps to Svelte front
+                ends.
             </p>
         </ScrollReveal>
     </div>

@@ -7,6 +7,18 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<script>
+			// Runs before first paint so dark-mode visitors never see a white flash.
+			try {
+				const saved = localStorage.getItem('theme');
+				const dark =
+					saved === 'dark' ||
+					(!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+				document.documentElement.classList.toggle('dark', dark);
+			} catch (e) {
+				// localStorage can throw in private/blocked contexts; light theme is fine.
+			}
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

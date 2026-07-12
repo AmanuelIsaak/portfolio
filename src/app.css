@@ -153,6 +153,17 @@ h3 {
   opacity: 1;
 }
 
+/* Makes a link's hit area cover its whole positioned ancestor, so a card can be
+   fully clickable while secondary links inside it (lifted with z-10) still work.
+   Avoids nesting anchors, which is invalid HTML. */
+.stretched-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
 /* Dot grid background pattern */
 .dot-pattern {
   background-image: radial-gradient(circle, rgb(var(--color-border) / 0.5) 1px, transparent 1px);

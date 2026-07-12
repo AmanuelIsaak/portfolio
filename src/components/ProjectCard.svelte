@@ -1,11 +1,15 @@
 <script lang="ts">
     export let name = "";
-    export let link = "";
     export let description = "";
     export let tech: string[] = [];
     export let featured = false;
     export let highlights: string[] = [];
-    // "source" | "live" | "concept" | "soon"
+    // Optional destinations. A card may have a live deployment, a public repo,
+    // both, or neither (private work).
+    export let demo = "";
+    export let repo = "";
+    export let repoLabel = "Source";
+    // "live" | "source" | "private" | "soon"
     export let status = "";
 
     const techColors: Record<string, string> = {
@@ -13,32 +17,30 @@
         Python: "bg-blue-500",
         JavaScript: "bg-amber-500",
         TypeScript: "bg-blue-600",
+        Rust: "bg-orange-600",
         Java: "bg-red-500",
         PHP: "bg-indigo-400",
         Svelte: "bg-orange-500",
+        SvelteKit: "bg-orange-500",
+        Tauri: "bg-yellow-500",
         Tailwind: "bg-cyan-500",
         MySQL: "bg-teal-500",
         "Three.js": "bg-slate-500",
-        FastAPI: "bg-emerald-500",
-        "Claude API": "bg-rose-500",
-        SvelteKit: "bg-orange-500",
+        "PDF.js": "bg-red-400",
     };
     const dot = (t: string) => techColors[t] ?? "bg-slate-400";
 
-    const statusStyles: Record<
-        string,
-        { label: string; class: string }
-    > = {
-        source: {
-            label: "Source",
-            class: "bg-slate-100 text-slate-600 dark:bg-slate-700/60 dark:text-slate-300",
-        },
+    const statusStyles: Record<string, { label: string; class: string }> = {
         live: {
             label: "Live",
             class: "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400",
         },
-        concept: {
-            label: "Concept",
+        source: {
+            label: "Source",
+            class: "bg-slate-100 text-slate-600 dark:bg-slate-700/60 dark:text-slate-300",
+        },
+        private: {
+            label: "Private",
             class: "bg-violet-50 text-violet-600 dark:bg-violet-900/30 dark:text-violet-400",
         },
         soon: {
@@ -47,19 +49,18 @@
         },
     };
 
-    $: isLink = !!link && status !== "soon";
+    // The card as a whole navigates to its most interesting destination: a live
+    // deployment if there is one, otherwise the source. Secondary links sit
+    // above the stretched overlay so they stay independently clickable.
+    $: primary = demo || repo;
     $: badge = statusStyles[status];
 </script>
 
-<svelte:element
-    this={isLink ? "a" : "div"}
-    href={isLink ? link : undefined}
-    target={isLink ? "_blank" : undefined}
-    rel={isLink ? "noopener noreferrer" : undefined}
-    class="card-glow group flex h-full flex-col rounded-xl border p-6 transition-all duration-300
-           {status === 'soon'
-        ? 'border-dashed border-slate-300 dark:border-slate-700 bg-transparent'
-        : 'border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/50 hover:shadow-xl hover:shadow-rose-500/5 hover:-translate-y-1.5'}
+<article
+    class="card-glow group relative flex h-full flex-col rounded-xl border p-6 transition-all duration-300
+           {primary
+        ? 'border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/50 hover:shadow-xl hover:shadow-rose-500/5 hover:-translate-y-1.5 focus-within:-translate-y-1.5'
+        : 'border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/50'}
            {featured ? 'md:col-span-2' : ''}"
 >
     <div class="flex items-start justify-between gap-4 mb-3">
@@ -83,12 +84,23 @@
             {/if}
             <h3
                 class="font-semibold text-slate-900 dark:text-white transition-colors duration-300
-                       {status !== 'soon'
+                       {primary
                     ? 'group-hover:text-rose-600 dark:group-hover:text-rose-400'
                     : ''}
                        {featured ? 'text-xl md:text-2xl' : 'text-lg'}"
             >
-                {name}
+                {#if primary}
+                    <a
+                        href={primary}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="stretched-link rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+                    >
+                        {name}
+                    </a>
+                {:else}
+                    {name}
+                {/if}
             </h3>
         </div>
 
@@ -98,21 +110,6 @@
             >
                 {badge.label}
             </span>
-        {:else if isLink}
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4 text-slate-400 group-hover:text-rose-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 flex-shrink-0 mt-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M7 17L17 7M17 7H7M17 7v10"
-                />
-            </svg>
         {/if}
     </div>
 
@@ -132,7 +129,7 @@
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="w-3.5 h-3.5 text-rose-500"
+                        class="w-3.5 h-3.5 text-rose-500 flex-shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -150,16 +147,64 @@
         </ul>
     {/if}
 
-    {#if tech.length}
-        <div class="mt-auto flex flex-wrap gap-2 pt-1">
-            {#each tech as t}
-                <span
-                    class="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300"
-                >
-                    <span class="w-1.5 h-1.5 rounded-full {dot(t)}"></span>
-                    {t}
-                </span>
-            {/each}
-        </div>
-    {/if}
-</svelte:element>
+    <div class="mt-auto pt-1">
+        {#if tech.length}
+            <div class="flex flex-wrap gap-2">
+                {#each tech as t}
+                    <span
+                        class="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300"
+                    >
+                        <span class="w-1.5 h-1.5 rounded-full {dot(t)}"></span>
+                        {t}
+                    </span>
+                {/each}
+            </div>
+        {/if}
+
+        {#if demo || repo}
+            <div
+                class="mt-4 flex flex-wrap items-center gap-4 border-t border-slate-100 dark:border-slate-700/60 pt-4"
+            >
+                {#if demo}
+                    <a
+                        href={demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold text-rose-600 dark:text-rose-400 hover:gap-2 transition-all duration-300"
+                    >
+                        Live demo
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-3.5 h-3.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M7 17L17 7M17 7H7M17 7v10"
+                            />
+                        </svg>
+                    </a>
+                {/if}
+                {#if repo}
+                    <a
+                        href={repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="relative z-10 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
+                    >
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                            />
+                        </svg>
+                        {repoLabel}
+                    </a>
+                {/if}
+            </div>
+        {/if}
+    </div>
+</article>
