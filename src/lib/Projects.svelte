@@ -18,7 +18,8 @@
         description:
             "A lightweight desktop PDF reader and editor. It renders documents with PDF.js and writes edited copies with pdf-lib, while native Rust commands handle the file dialogs, filesystem access, and recent-file history. You can fill interactive form fields, add text, highlights, and freehand drawings, then export without ever touching the source file.",
         tech: ["Tauri", "Rust", "Svelte", "TypeScript", "Tailwind"],
-        status: "private",
+        repo: "https://github.com/AmanuelIsaak/pdf-reader",
+        status: "source",
         highlights: [
             "Native Rust file I/O",
             "Form filling & annotations",
@@ -30,7 +31,7 @@
         {
             name: "My Circle",
             description:
-                "A personal relationship tracker that maps the people in your life across concentric circles of closeness. Three ways to view the same data — circle, timeline, and grid — with everything stored locally in the browser.",
+                "A personal relationship tracker that maps the people in your life across concentric circles of closeness. Search and filter across circle, timeline, and grid views, manage each relationship, and import or export your data — all stored locally in the browser.",
             tech: ["Svelte", "TypeScript", "Tailwind"],
             demo: "https://family-tree-tau-nine.vercel.app",
             repo: "https://github.com/AmanuelIsaak/my-circle",
@@ -39,8 +40,8 @@
         {
             name: "URL Shortener",
             description:
-                "A minimal URL shortener written in Go — takes a long link, hands back a short one, and redirects. Server-rendered templates, no external dependencies, small enough to read end to end.",
-            tech: ["Go"],
+                "A production-minded URL shortener written in Go, with cryptographically generated short codes, Redis persistence, an in-memory development fallback, health checks, structured logging, graceful shutdown, and a fully tested, containerized deployment path.",
+            tech: ["Go", "Redis", "Docker"],
             repo: "https://github.com/AmanuelIsaak/URL-shortner",
             status: "source",
         },
@@ -103,6 +104,7 @@
                     description={featured.description}
                     tech={featured.tech}
                     status={featured.status}
+                    repo={featured.repo ?? ""}
                     highlights={featured.highlights ?? []}
                     featured
                 />
