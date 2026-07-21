@@ -29,9 +29,15 @@
 
     onDestroy(() => clearInterval(interval));
 
-    const facts = [
+    const programme =
+        "https://www.fhnw.ch/de/wirtschaft/studium/angebot/studiengaenge/bachelor-in-business-information-technology";
+
+    type Fact = { label: string; icon: string; href?: string };
+
+    const facts: Fact[] = [
         {
             label: "FHNW · Business IT",
+            href: programme,
             icon: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z",
         },
         {
@@ -124,7 +130,15 @@
                 class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 justify-center md:justify-start text-sm text-slate-500 dark:text-slate-400"
             >
                 {#each facts as fact}
-                    <span class="inline-flex items-center gap-1.5">
+                    <svelte:element
+                        this={fact.href ? "a" : "span"}
+                        href={fact.href}
+                        target={fact.href ? "_blank" : undefined}
+                        rel={fact.href ? "noopener noreferrer" : undefined}
+                        class="inline-flex items-center gap-1.5 {fact.href
+                            ? 'hover:text-rose-600 dark:hover:text-rose-400 transition-colors'
+                            : ''}"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="w-4 h-4 text-rose-500/80"
@@ -140,7 +154,7 @@
                             />
                         </svg>
                         {fact.label}
-                    </span>
+                    </svelte:element>
                 {/each}
             </div>
 

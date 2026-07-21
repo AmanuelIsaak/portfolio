@@ -2,6 +2,9 @@
     import { onMount } from "svelte";
 
     export let delay = 0;
+    // `class` is reserved, so it is taken in under an alias and re-exported.
+    let className = "";
+    export { className as class };
 
     let element: HTMLDivElement;
     let visible = false;
@@ -29,7 +32,7 @@
 
 <div
     bind:this={element}
-    class="transition-all duration-600 ease-out
+    class="transition-all duration-600 ease-out {className}
            {visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}"
     style="transition-duration: 600ms;"
 >

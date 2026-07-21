@@ -36,15 +36,6 @@
             repo: "https://github.com/AmanuelIsaak/pdf-reader",
             status: "source",
         },
-        {
-            name: "More in progress",
-            description:
-                "I'm usually building something. Recent work has pulled me toward desktop apps, Rust, and AI-assisted tooling — the newest things land on GitHub first.",
-            tech: [],
-            repo: "https://github.com/AmanuelIsaak",
-            repoLabel: "GitHub",
-            status: "soon",
-        },
     ];
 </script>
 
@@ -94,7 +85,14 @@
             </ScrollReveal>
 
             {#each projects as project, i}
-                <ScrollReveal delay={i * 80}>
+                <!-- An odd number of cards would leave the last one orphaned
+                     beside a gap, so let it run the full width instead. -->
+                <ScrollReveal
+                    delay={i * 80}
+                    class={projects.length % 2 === 1 && i === projects.length - 1
+                        ? "md:col-span-2"
+                        : ""}
+                >
                     <ProjectCard
                         name={project.name}
                         description={project.description}

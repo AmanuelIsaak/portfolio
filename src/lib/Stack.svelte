@@ -92,7 +92,7 @@
         <div class="flex w-max animate-marquee">
             {#each [...logos, ...logos] as logo, i}
                 <div
-                    class="flex items-center gap-2.5 mx-3 px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700/70 bg-white/70 dark:bg-slate-800/40 backdrop-blur-sm shadow-sm whitespace-nowrap"
+                    class="flex items-center gap-2.5 mx-3 px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700/70 bg-white/70 dark:bg-slate-800/40 backdrop-blur-sm shadow-sm whitespace-nowrap transition-colors duration-200 hover:border-rose-300 dark:hover:border-rose-700/70 hover:bg-white dark:hover:bg-slate-800/70"
                     aria-hidden={i >= logos.length ? "true" : undefined}
                 >
                     <img
