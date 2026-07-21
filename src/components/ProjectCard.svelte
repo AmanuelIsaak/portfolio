@@ -26,6 +26,8 @@
         Tailwind: "bg-cyan-500",
         MySQL: "bg-teal-500",
         Redis: "bg-red-500",
+        Postgres: "bg-blue-700",
+        Drizzle: "bg-lime-400",
         Docker: "bg-sky-500",
         "Three.js": "bg-slate-500",
         "PDF.js": "bg-red-400",

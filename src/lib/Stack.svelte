@@ -1,34 +1,32 @@
 <script lang="ts">
     import ScrollReveal from "../components/ScrollReveal.svelte";
 
-    import go from "../assets/go.svg";
-    import python from "../assets/python.svg";
-    import javascript from "../assets/javascript.svg";
     import typescript from "../assets/typescript.svg";
-    import rust from "../assets/rust.svg";
-    import java from "../assets/java.svg";
-    import php from "../assets/php.svg";
     import svelte from "../assets/svelte.svg";
-    import tauri from "../assets/tauri.svg";
     import tailwind from "../assets/tailwind.svg";
-    import mysql from "../assets/mysql.svg";
+    import go from "../assets/go.svg";
+    import postgres from "../assets/postgres.svg";
+    import redis from "../assets/redis.svg";
+    import neon from "../assets/neon.svg";
+    import vercel from "../assets/vercel.svg";
+    import rust from "../assets/rust.svg";
+    import tauri from "../assets/tauri.svg";
     import git from "../assets/git.svg";
     import neovim from "../assets/neovim.svg";
     import arch from "../assets/arch.svg";
 
     // Single source of truth for the scrolling marquee.
     const logos = [
-        { name: "Go", src: go },
-        { name: "Python", src: python },
-        { name: "JavaScript", src: javascript },
         { name: "TypeScript", src: typescript },
-        { name: "Rust", src: rust },
         { name: "Svelte", src: svelte },
-        { name: "Tauri", src: tauri },
         { name: "Tailwind", src: tailwind },
-        { name: "Java", src: java },
-        { name: "PHP", src: php },
-        { name: "MySQL", src: mysql },
+        { name: "Go", src: go },
+        { name: "Postgres", src: postgres },
+        { name: "Redis", src: redis },
+        { name: "Neon", src: neon },
+        { name: "Vercel", src: vercel },
+        { name: "Rust", src: rust },
+        { name: "Tauri", src: tauri },
         { name: "Git", src: git },
         { name: "Neovim", src: neovim },
         { name: "Arch", src: arch },
@@ -38,15 +36,7 @@
         {
             title: "Languages",
             icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
-            items: [
-                "Go",
-                "Python",
-                "TypeScript",
-                "JavaScript",
-                "Rust",
-                "Java",
-                "PHP",
-            ],
+            items: ["TypeScript", "Go", "Rust"],
         },
         {
             title: "Web & Desktop",
@@ -54,9 +44,9 @@
             items: ["Svelte", "SvelteKit", "Tauri", "Tailwind CSS", "HTML & CSS"],
         },
         {
-            title: "Data & Backend",
+            title: "Data & Infrastructure",
             icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4",
-            items: ["MySQL", "REST APIs", "Go", "PHP"],
+            items: ["Postgres", "Neon", "Redis", "Vercel"],
         },
         {
             title: "Tools & Environment",
@@ -64,6 +54,9 @@
             items: ["Git", "Neovim", "Arch Linux", "Docker"],
         },
     ];
+
+    // Not claimed as experience — things I'm deliberately heading toward next.
+    const exploring = ["Rust", "Kotlin"];
 </script>
 
 <section id="stack" class="relative py-24 md:py-32 overflow-hidden">
@@ -87,9 +80,9 @@
             <p
                 class="text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-12"
             >
-                A snapshot of the languages, frameworks, and tools I reach for —
-                from Go services and Rust-backed desktop apps to Svelte front
-                ends.
+                A short list on purpose. These are the things I actually reach
+                for — TypeScript and Svelte on the front, Go and Postgres behind
+                it, shipped on Vercel.
             </p>
         </ScrollReveal>
     </div>
@@ -164,5 +157,20 @@
                 </ScrollReveal>
             {/each}
         </div>
+
+        <ScrollReveal>
+            <p
+                class="mt-8 flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400"
+            >
+                <span>Going deeper next, for app development:</span>
+                {#each exploring as item}
+                    <span
+                        class="text-xs font-medium px-2.5 py-1 rounded-full border border-dashed border-rose-300 dark:border-rose-700/70 text-rose-600 dark:text-rose-400"
+                    >
+                        {item}
+                    </span>
+                {/each}
+            </p>
+        </ScrollReveal>
     </div>
 </section>

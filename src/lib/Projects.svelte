@@ -14,45 +14,27 @@
     };
 
     const featured: Project = {
-        name: "PDF Reader",
+        name: "Startline",
         description:
-            "A lightweight desktop PDF reader and editor. It renders documents with PDF.js and writes edited copies with pdf-lib, while native Rust commands handle the file dialogs, filesystem access, and recent-file history. You can fill interactive form fields, add text, highlights, and freehand drawings, then export without ever touching the source file.",
-        tech: ["Tauri", "Rust", "Svelte", "TypeScript", "Tailwind"],
-        repo: "https://github.com/AmanuelIsaak/pdf-reader",
-        status: "source",
+            "A quieter home for endurance planning. It collects 100+ real Swiss races you can filter by sport, distance, and region, alongside a shared bucket list of running and cycling routes. Athletes who sign in shortlist their season, connect Strava or COROS to sync training, and get explainable projections toward a goal race — deliberately a planning tool rather than another social feed.",
+        tech: ["SvelteKit", "TypeScript", "Postgres", "Drizzle", "Tailwind"],
+        demo: "https://startline-three.vercel.app",
+        status: "live",
         highlights: [
-            "Native Rust file I/O",
-            "Form filling & annotations",
-            "Full-document text search",
+            "Strava & COROS sync",
+            "Explainable training projections",
+            "Full account data export & deletion",
         ],
     };
 
     const projects: Project[] = [
         {
-            name: "My Circle",
+            name: "PDF Reader",
             description:
-                "A personal relationship tracker that maps the people in your life across concentric circles of closeness. Search and filter across circle, timeline, and grid views, manage each relationship, and import or export your data — all stored locally in the browser.",
-            tech: ["Svelte", "TypeScript", "Tailwind"],
-            demo: "https://family-tree-tau-nine.vercel.app",
-            repo: "https://github.com/AmanuelIsaak/my-circle",
-            status: "live",
-        },
-        {
-            name: "URL Shortener",
-            description:
-                "A production-minded URL shortener written in Go, with cryptographically generated short codes, Redis persistence, an in-memory development fallback, health checks, structured logging, graceful shutdown, and a fully tested, containerized deployment path.",
-            tech: ["Go", "Redis", "Docker"],
-            repo: "https://github.com/AmanuelIsaak/URL-shortner",
+                "A lightweight desktop PDF reader and editor. It renders documents with PDF.js and writes edited copies with pdf-lib, while native Rust commands handle the file dialogs, filesystem access, and recent-file history. You can fill interactive form fields, add text, highlights, and freehand drawings, then export without ever touching the source file.",
+            tech: ["Tauri", "Rust", "Svelte", "TypeScript"],
+            repo: "https://github.com/AmanuelIsaak/pdf-reader",
             status: "source",
-        },
-        {
-            name: "This Portfolio",
-            description:
-                "The site you're reading right now — SvelteKit and Tailwind, with an interactive Three.js particle field behind the hero and a dark mode that remembers your choice.",
-            tech: ["SvelteKit", "Tailwind", "Three.js"],
-            demo: "https://amanuel-isaak.vercel.app",
-            repo: "https://github.com/AmanuelIsaak/portfolio",
-            status: "live",
         },
         {
             name: "More in progress",
@@ -104,6 +86,7 @@
                     description={featured.description}
                     tech={featured.tech}
                     status={featured.status}
+                    demo={featured.demo ?? ""}
                     repo={featured.repo ?? ""}
                     highlights={featured.highlights ?? []}
                     featured
